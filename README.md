@@ -7,6 +7,7 @@
 - php artisan key:generate
 - php artisan migrate
 - php artisan db:seed
+- php artisan storage:link
 - run command "npm install" and 'npm run watch'
 - Start server with command 'php artisan serve'. For default site open in  'http://127.0.0.1:8000' but if you have another address you need to change 'axios.defaults.baseURL' in 'resources/js/app.js' .
 
