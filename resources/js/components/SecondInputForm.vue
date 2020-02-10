@@ -35,8 +35,8 @@
             <div v-if="(FormInput.mileage > 100000)" class="alert alert-warning" role="alert">
                 We can insure your car!
             </div>
-            <button type="submit" :disabled="FormInput.mileage > 100000" class="btn btn-success">Save</button>
-            <button type="button" class="btn btn-warning"  @click="GoHome">Get Quote</button>
+            <button type="submit"  class="btn btn-success">Save</button>
+            <button type="button" :disabled="FormInput.mileage > 100000" class="btn btn-warning"  @click="GoHome">Get Quote</button>
         </form>
     </div>
 </template>
@@ -84,12 +84,9 @@
                 document.location.href = '/home'
             },
             onFileChange(){
-                console.log(this.$refs.file.files[0]);
                 this.file = this.$refs.file.files[0];
             },
             async setFormDate (){
-                console.log(this.FormInput)
-
                 const data = this.FormInput;
                 axios.post('/home/create/page_1/' + this.current_case.id, data)
                     .then((response) => {
@@ -106,7 +103,6 @@
                 const config = {
                     headers: { 'content-type': 'multipart/form-data' }
                 };
-//                const data = this.FormInput;
                 let formData = new FormData();
                 formData.append('fileToUpload', this.file);
                 formData.set('data',JSON.stringify(this.FormInput));
@@ -127,7 +123,6 @@
             }
         },
         mounted() {
-            console.log(this.drive_options)
         }
     }
 </script>

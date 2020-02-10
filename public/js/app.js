@@ -2079,7 +2079,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   if (error.status == 422) {
                     _this.error = true;
                     _this.errors = error.response.data.errors;
-                    console.log(_this.errors);
                   }
                 });
 
@@ -2102,7 +2101,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                console.log(_this2.FormInput);
                 data = _this2.FormInput;
                 axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/home/create/page_1/' + _this2.current_case.id, data).then(function (response) {
                   _this2.error = false;
@@ -2116,7 +2114,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 3:
+              case 2:
               case "end":
                 return _context2.stop();
             }
@@ -2135,7 +2133,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                console.log(_this3.FormInput);
                 data = _this3.FormInput;
                 axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/home/create/page_1/' + _this3.current_case.id + '?full_form=true', data).then(function (response) {
                   _this3.error = false;
@@ -2148,7 +2145,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 3:
+              case 2:
               case "end":
                 return _context3.stop();
             }
@@ -2160,7 +2157,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mounted: function mounted() {
     if (this.current_case.makes_id) {
       this.setMaker();
-      console.log(this.current_case);
       this.FormInput.model_id = this.current_case.model_id;
     }
 
@@ -2274,7 +2270,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       document.location.href = '/home';
     },
     onFileChange: function onFileChange() {
-      console.log(this.$refs.file.files[0]);
       this.file = this.$refs.file.files[0];
     },
     setFormDate: function setFormDate() {
@@ -2288,7 +2283,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(_this.FormInput);
                 data = _this.FormInput;
                 axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/home/create/page_1/' + _this.current_case.id, data).then(function (response) {})["catch"](function (error) {
                   if (error.response.status == 422) {
@@ -2298,7 +2292,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 3:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -2321,8 +2315,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   headers: {
                     'content-type': 'multipart/form-data'
                   }
-                }; //                const data = this.FormInput;
-
+                };
                 formData = new FormData();
                 formData.append('fileToUpload', _this2.file);
                 formData.set('data', JSON.stringify(_this2.FormInput));
@@ -2349,9 +2342,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  mounted: function mounted() {
-    console.log(this.drive_options);
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -62220,10 +62211,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { type: "submit", disabled: _vm.FormInput.mileage > 100000 }
-          },
+          { staticClass: "btn btn-success", attrs: { type: "submit" } },
           [_vm._v("Save")]
         ),
         _vm._v(" "),
@@ -62231,7 +62219,7 @@ var render = function() {
           "button",
           {
             staticClass: "btn btn-warning",
-            attrs: { type: "button" },
+            attrs: { type: "button", disabled: _vm.FormInput.mileage > 100000 },
             on: { click: _vm.GoHome }
           },
           [_vm._v("Get Quote")]

@@ -107,12 +107,10 @@
                     if (error.status == 422){
                         this.error = true;
                         this.errors = error.response.data.errors;
-                        console.log( this.errors)
                     }
                 });
             },
             async setFormDate (){
-                console.log(this.FormInput)
                 const data = this.FormInput;
                 axios.post('/home/create/page_1/' + this.current_case.id, data)
                     .then((response) => {
@@ -129,7 +127,6 @@
                     });
             },
             async create (){
-                console.log(this.FormInput)
                 const data = this.FormInput;
                 axios.post('/home/create/page_1/' + this.current_case.id + '?full_form=true', data)
                     .then((response) => {
@@ -147,7 +144,6 @@
         mounted() {
             if(this.current_case.makes_id){
                 this.setMaker();
-                console.log(this.current_case)
                 this.FormInput.model_id = this.current_case.model_id
             }
             if(this.current_case.buying_date){

@@ -97,11 +97,10 @@ class DashboardController extends Controller
         $case = $user->cases()->findOrFail($id);
         if($request->full_form){
             $case->update($request->all());
-
             return response()->json(200);
         }else{
             $case->update($request->all());
-            return response()->json('upd not full form');
+            return response()->json(200);
         }
     }
 
